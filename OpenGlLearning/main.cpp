@@ -2,10 +2,17 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-
+// Functions called in main
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+}
+
+void processInput(GLFWwindow* window)
+{
+	// Escape key sets window to close
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, true);
 }
 
 // Needed for all C++ projects
@@ -43,6 +50,8 @@ int main()
 	// Render/Game Loop
 	while (!glfwWindowShouldClose(window))
 	{
+		processInput(window);
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
