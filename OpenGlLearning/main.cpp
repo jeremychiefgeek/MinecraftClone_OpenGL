@@ -50,7 +50,12 @@ int main()
 	// Render/Game Loop
 	while (!glfwWindowShouldClose(window))
 	{
+		// Process key and joystick input here
 		processInput(window);
+
+		// Change BG COlor to check if working
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
